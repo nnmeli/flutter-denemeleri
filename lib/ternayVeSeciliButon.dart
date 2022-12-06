@@ -32,6 +32,7 @@ class OrtaAlan extends StatefulWidget {
 }
 
 class _OrtaAlanState extends State<OrtaAlan> {
+  String buton = "bos";
   var color1 = Colors.red;
   var color2 = Colors.blue;
   @override
@@ -49,26 +50,30 @@ class _OrtaAlanState extends State<OrtaAlan> {
                 style: TextButton.styleFrom(foregroundColor: Colors.black),
                 onPressed: () {
                   setState(() {
-                    color1 == Colors.yellow ? color1= Colors.red : color1==Colors.red ? color1 = Colors.yellow : null;
+                    buton = "Birinci";
                   });
                 },
                 child: Container(
+                  child: Text("Birinci Buton"),
                   width: 150,
                   height: 400,
-                  color: color1,
+                  color: buton == "Birinci" ? color1 : color2,
                 ),
               ),
               TextButton(
                 style: TextButton.styleFrom(foregroundColor: Colors.black),
                 onPressed: () {
-                  setState(() {
-                    color2 == Colors.blue ? color2= Colors.green : color2==Colors.green ? color2 = Colors.blue : null;
-                  });
+                  setState(
+                    () {
+                      buton = "İkinci";
+                    },
+                  );
                 },
                 child: Container(
+                  child: Text("İkinci Buton"),
                   width: 150,
                   height: 400,
-                  color: color2,
+                  color: buton == "İkinci" ? color1 : color2,
                 ),
               )
             ],
@@ -78,6 +83,5 @@ class _OrtaAlanState extends State<OrtaAlan> {
     );
   }
 }
-// Expanden widgeti objeleri ekrana göre kısıtlar , kardes olmalılar
-
-// onpressed içine setstate koymalıyız ki statein değiştiğini anlasın
+//  ROW U ORTALAMAK İÇİN BİR DE COLUMN KULLANDIM AMA BODY KISMINDAN CENTER PARANTEZİNE ALSAYDIN GEREK KALMAZDI
+//color1 == Colors.yellow ? color1= Colors.red : color1==Colors.red ? color1 = Colors.yellow : null;
